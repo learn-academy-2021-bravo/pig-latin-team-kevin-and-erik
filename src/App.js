@@ -33,21 +33,25 @@ class App extends Component {
       })
       console.log("indexOfFirstVowel",currentWord.indexOf(vowelsArray[0]))
       console.log("vowelsArray:", vowelsArray)
-      console.log(currentWord.indexOf(vowelsArray[1]))
-      console.log(vowelsArray[0])
+      //find index of u in current word and ask if the letter before u is a q
+      console.log("current word", currentWord.indexOf(vowelsArray[1]))
+      console.log("now", vowelsArray[1])
 
       // your code here!
 // there is no other vowel in the word:
       let notU = currentWord.search(/[a,e,i,o]/g)
       let location = currentWord.search(/[a,e,i,o,u]/g)
-    console.log(location)
+    // console.log(location)
     // if the vowel is in idex 0 then add way to the end of the array.
-      if(notU > 1){
-      return currentWord.slice(location) + currentWord.slice(0, location) +'ay'
-    }
-      else if (location === 0){
+      if (location === 0){
         return currentWord.concat("way")
       } 
+      else if (location === -1){
+        return currentWord.slice(location) + currentWord.slice(0, location) +'ay'
+      }
+      // else if (currentWord.indexOf(vowelsArray[1])) {
+      //   return currentWord.slice(vowelsArray[1]) + currentWord.slice(2, vowelsArray[1]) +'ay'
+      // }
       else{
         return currentWord.slice(location) + currentWord.slice(0, location) +'ay'
       }
