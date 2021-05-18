@@ -34,6 +34,14 @@ class App extends Component {
       console.log("vowelsArray:", vowelsArray)
 
       // your code here!
+// there is no other vowel in the word:
+
+      let location = currentWord.search(/[a,e,i,o,u]/g)
+    console.log(location)
+    // if the vowel is in idex 0 then add way to the end of the array.
+      if (location === 0){
+        return currentWord.concat("way")
+      } 
 
       // Remember: console.log is your friend :)
 
