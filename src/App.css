@@ -1,40 +1,54 @@
 body {
+  background-color:rgb(118, 189, 252);
   margin: 1rem;
   font-family: 'Josefin Sans', sans-serif;
   text-align: center;
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 6rem;
+  font-family: 'Chalkduster';
+  font-style: italic;
+  color: rgb(10, 10, 10);
+  text-shadow: 5px 5px rgb(251, 251, 251);
 }
 
 button {
   margin: 1rem;
-  border-radius: 0.5rem;
+  border-radius: 0.9rem;
   padding: 1rem;
 }
 
+.result{
+  font-size: 2rem;
+}
+
 footer {
-  padding: 2rem;
+  padding: 5rem;
+  font-size:x-large;
 }
 
 .butcherPig {
-  width: 12rem;
+  border-radius: 0.7rem;
+  width: 39rem;
 }
 
 .userInput {
   border-radius: .5rem;
-  font-size: 1rem;
+  font-size: 1.5rem;
   height: 5rem;
-  width: 20rem;
+  width: 30rem;
   text-align: center;
 }
 
 .inputArea {
-  background-color: #606060;
-  color: #fff;
-  border-radius: .5rem;
+  background-color: #0c0b0c;
+  color: rgb(255, 255, 255);
+  border-radius: .9rem;
   padding: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  width:42%;
 }
 
 @media only screen and (max-width: 650px) {

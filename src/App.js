@@ -21,27 +21,19 @@ class App extends Component {
     // the variable "userInput" will contain the text input from the user modified into an array of words
     // no need to change this variable
     let userInput = this.state.phrase.split(" ")
-    console.log("userInput:", userInput)
 
     // now that we have an array of words, we can map over the array and access each word
     let translatedWordsArray = userInput.map(currentWord => {
       // ACTION ITEM: use "currentWord" as a starting point for your code
-      console.log("currentWord:", currentWord)
 
       let vowelsArray = currentWord.split("").filter(vowel => {
         return vowel === "a" || vowel === "e" || vowel === "i" || vowel === "o" || vowel === "u"
       })
-      console.log("indexOfFirstVowel",currentWord.indexOf(vowelsArray[0]))
-      console.log("vowelsArray:", vowelsArray)
-      //find index of u in current word and ask if the letter before u is a q
-      console.log("current word", currentWord.indexOf(vowelsArray[1]))
-      console.log("now", vowelsArray[1])
 
       // your code here!
 // there is no other vowel in the word:
-      let notU = currentWord.search(/[a,e,i,o]/g)
-      let location = currentWord.search(/[a,e,i,o,u]/g)
-    // console.log(location)
+      let location = currentWord.search(/[a,e,i,o,u,A,E,I,O,U]/g)
+      let qChecker = currentWord[currentWord.indexOf(vowelsArray[0]) -1]
     // if the vowel is in idex 0 then add way to the end of the array.
       if (location === 0){
         return currentWord.concat("way")
@@ -49,14 +41,14 @@ class App extends Component {
       else if (location === -1){
         return currentWord.slice(location) + currentWord.slice(0, location) +'ay'
       }
-      // else if (currentWord.indexOf(vowelsArray[1])) {
-      //   return currentWord.slice(vowelsArray[1]) + currentWord.slice(2, vowelsArray[1]) +'ay'
-      // }
+      else if (vowelsArray[0] === "u" && qChecker === "q"){
+        return currentWord.slice(currentWord.indexOf(vowelsArray[1])) + currentWord.slice(0, currentWord.indexOf(vowelsArray[1])) +'ay'
+      }
       else{
         return currentWord.slice(location) + currentWord.slice(0, location) +'ay'
       }
       
-      console.log(currentWord)
+      
 
       // Remember: console.log is your friend :)
 
@@ -103,7 +95,7 @@ class App extends Component {
       <>
         <h1>Pig Latin Translator</h1>
         <img
-          src={ butcherPig }
+          src= "http://assets.ltkcontent.com/images/44651/pig-latin-words_0066f46bde.jpg" 
           alt="pig with butcher cut names in pig latin"
           className="butcherPig"
         />
@@ -121,8 +113,9 @@ class App extends Component {
           <button onClick={ this.setUpPreventDefault }>Submit</button>
           <button onClick={ this.restartGame }>Clear</button>
         </div>
-        <p>{ this.state.phraseTranslated }</p>
-        <footer>Coded by ~your name here~</footer>
+        <p className = "result">
+          { this.state.phraseTranslated }</p>
+        <footer>Coded by ~Kevin, Erik~</footer>
       </>
     )
   }
